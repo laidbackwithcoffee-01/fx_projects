@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.practice.employeemanagement.dto.EmployeeManagementDto">
+	<resultMap type="employeemanagement" id="employeemanagementResult">
+		<result column="employee_no" property="employeeNo" />
+		<result column="name" property="name" />
+	</resultMap>
+    <select id="find" parameterType="employeemanagement" resultMap="employeemanagementResult">
+		select
+			employee_no,
+			name
+		from
+			employees
+		<where>
+			<if test="conditionEmployeeNo != null and conditionEmployeeNo != ''">
+				employee_no like #{conditionEmployeeNo} || '%'
+			</if>
+			<if test="conditionName != null and conditionName != ''">
+				and name like '%' || #{conditionName} || '%'
+			</if>
+		</where>
+		order by
+			employee_no
+		;
+    </select>
+    <select id="select" parameterType="employeemanagement" resultMap="employeemanagementResult">
+    	select
+    		employee_no,
+    		name
+    	from
+    		employees
+    	where
+    		employee_no = #{employeeNo}
+    	;
+    </select>
+	<insert id="insert" parameterType="employeemanagement">
+		insert into employees
+		(
+			employee_no,
+			name
+		)
+		values
+		(
+			#{employeeNo},
+			#{name}
+		);
+    </insert>
+    <delete id="delete" parameterType="com.practice.employeemanagement.dto.EmployeeManagementDto">
+		delete
+		from
+			employees
+		where
+			employee_no = #{employeeNo}
+		;
+    </delete>
+    <update id="update" parameterType="com.practice.employeemanagement.dto.EmployeeManagementDto">
+		update
+			employees
+		set
+			name = #{name}
+		where
+			employee_no = #{employeeNo}
+		;
+    </update>
+</mapper>

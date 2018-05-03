@@ -1,0 +1,35 @@
+= Ubuntu Server 1604 vsftpd Install
+
+== install
+* sudo apt-get -y install vsftpd
+
+* sudo vim /etc/vsftpd.conf
+
+[source]
+.vsftpd.conf
+----
+# 31行目：コメント解除( 書き込み許可 )
+write_enable=YES
+# 99,100行目：コメント解除( アスキーモード転送許可 )
+ascii_upload_enable=YES
+ascii_download_enable=YES
+# 122行目：コメント解除( chroot 有効 )
+chroot_local_user=YES
+# 123行目：コメント解除( chroot リスト有効 )
+chroot_list_enable=YES
+# 125行目：コメント解除( chrootリスト指定 )
+chroot_list_file=/etc/vsftpd.chroot_list
+# 131行目：コメント解除( ディレクトリごと一括での転送有効 )
+ls_recurse_enable=YES
+# 最終行へ追記：chrootのルートディレクトリ指定
+# 指定しない場合はユーザーのホームディレクトリ直下になる
+# public_htmlを指定した場合で、且つ当該ディレクトリがないとログインできないので注意
+local_root=public_html
+# seccomp filter をオフにする
+seccomp_sandbox=NO
+root@www:~# vi /etc/vsftpd.chroot_list
+# 上の階層へ移動を許可するユーザーを行毎に列挙
+ubuntu
+----
+
+* sudo systemctl restart vsftpd 

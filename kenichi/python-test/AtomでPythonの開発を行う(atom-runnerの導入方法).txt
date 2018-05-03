@@ -1,0 +1,17 @@
+■AtomでPythonの開発を行う(atom-runnerの導入方法)
+(参考)http://paiza.hatenablog.com/entry/2017/02/07/%E5%88%9D%E5%BF%83%E8%80%85%E3%81%A7%E3%82%82%E7%B0%A1%E5%8D%98%E3%81%AB%E3%81%A7%E3%81%8D%E3%82%8BPython%E3%81%AE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%81%A8%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF%E3%81%A7
+1.公式サイトからAtomをインストールしてください。
+2.起動させた時に出る右側のWelcome Guideから「Install a Package」をクリックし、「Open Installer」をクリックすると左側に検索欄が出てきます。
+3.「atom-runner」をテキストボックスに入力してEnterを押すと「atom-runner」が出てくるので「Install」をクリックします。
+4.「untitle」のタブに移って、適当なPythonファイルを作りましょう。コードを書いたらControl + sで保存できますので、忘れずに .py の拡張子で保存します。
+5. MacOSであれば Control + r、Windowsであれば Alt + r でコードを実行することができ、その結果が右側に表示されます。
+※ただしMacOSの場合、そのままだとデフォルトでインストールされているPython2で実行されます。先の説明でインストールしたPython3を使用するには、メニューバーからAtom→Config と進んでConfigファイルを直接編集してディレクトリを指定する必要があります。
+
+"*":
+  editor:
+    fontSize: 15
+  "exception-reporting":
+    userId: "〜〜〜"
+  runner:
+    scopes:
+      python: "/Library/Frameworks/Python.framework/Versions/3.6/bin/Python3"

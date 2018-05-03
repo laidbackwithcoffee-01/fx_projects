@@ -1,0 +1,7 @@
+= Ubuntu Server 16.04 Shell
+
+== Syntax error: end of file unexpected (expecting “then”)
+
+* sudo apt-get install dos2unix
+* それでも実行できない場合はShellの改行コードをLFに変換する。
+

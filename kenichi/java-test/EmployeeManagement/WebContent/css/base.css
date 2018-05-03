@@ -1,0 +1,50 @@
+img,iframe {
+  max-width: 100%;
+}
+
+#page-box {
+	background-color: #EEE;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#site-box {
+	background-color: #9DD;
+}
+
+#table-box {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+p#msg {
+	background: -webkit-linear-gradient(#3498db 10%, #9b59b6 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+input#submit_button {
+	padding: 10px 30px;
+	font-size: 1.2em;
+	background-color: #000;
+	color: #fff;
+	border-style: none;
+}
+
+input#submit_button_edit {
+	padding: 5px 15px;
+	font-size: 1.0em;
+	background-color: #000;
+	color: #fff;
+	border-style: none;
+}
+
+input#submit_button_del {
+	padding: 5px 15px;
+	font-size: 1.0em;
+	background-color: #f33;
+	color: #000;
+	border-style: none;
+}

@@ -1,0 +1,56 @@
+
+= Python系インストール
+
+== スクレイピング
+
+[source]
+.PythonでWebスクレイピング
+----
+pip install selenium
+brew install chromedriver macの場合
+sudo apt-get install chromium-browser Linuxの場合
+----
+
+[source]
+.PhantomJsのインストール
+----
+PhantomJSのサイトからzipファイルをダウンロードします +
+バイナリファイル (bin/phantomjs) を /usr/local/bin/ におきます
+pip install cssselect
+pip install lxml
+----
+
+[source]
+.scrapyのインストール
+----
+conda install scrapy
+----
+
+== Django
+
+[source]
+.Djangoインストール
+----
+(参考)http://qiita.com/kimihiro_n/items/86e0a9e619720e57ecd8
+pip install django
+pip install djangorestframework
+pip install django-filter
+(実装参考)http://qiita.com/kimihiro_n/items/86e0a9e619720e57ecd8
+----
+
+== RestAPI
+
+[source]
+.requestsのインストール
+----
+pip install requests
+----
+
+* テストサーバー用ツール
+
+[source]
+.httpbinのインストール
+----
+pip install httpbin
+python -m httpbin.core
+----

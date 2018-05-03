@@ -1,0 +1,41 @@
+= Ubuntu Server Static IP Setting
+
+== Modofy interfaces file
+
+* sudo vi /etc/network/interfaces
+
+[source]
+.interfaces
+----
+「iface eth0 inet dhcp」->
+「iface eth0 inet static」
+
+auto eth0
+    iface eth0 inet static         # "static"が固定アドレスを表す
+    address 192.168.1.101          # 振りたいIPアドレス
+    netmask 255.255.255.0          # ネットワークマスク
+    gateway 192.168.1.254          # デフォルトゲートウェイのIPアドレス
+    dns-nameservers 192.168.1.254  # DNSサーバーのIPアドレス
+----
+
+* 再起動する
+
+* sakura VPS isoインストールする場合ipv4とipv6を設定すること
+
+[source]
+.interfaces
+----
+auto ens3
+iface ens3 inet static
+address xxx.xx.xxx.xxx
+netmask 255.255.254.0
+gateway 160.16.236.1
+dns-nameservers 210.188.224.10
+dns-search vs.sakura.ne.jp
+
+iface ens3 inet6 static
+address xxxx:xxx:xxx:xxxx:xxx:xx:xxx:xxx
+netmask 64
+gateway fe80::1
+dns-nameservers 2001:e42::1
+----

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.practice.mybatistest.dto.MyBatisTestDto">
+	<resultMap type="mybatsitest" id="mybatistestResult">
+		<result column="id" property="id" />
+		<result column="col_test_1" property="colTest1" />
+		<result column="col_test_2" property="colTest2" />
+		<result column="col_test_3" property="colTest3" />
+	</resultMap>
+	<select id="select_max" resultMap="mybatistestResult">
+		select
+			max(id) as id
+		from
+			mybatis_test
+		;
+	</select>
+    <select id="find" parameterType="mybatsitest" resultMap="mybatistestResult">
+		select
+			id,
+			col_test_1,
+			col_test_2,
+			col_test_3
+		from
+			mybatis_test
+		<where>
+			<if test="colTest1 != null and colTest1 != ''">
+				col_test_1 like '%' || #{colTest1} || '%'
+			</if>
+			<if test="colTest2 != null and colTest2 != ''">
+				and col_test_2 like '%' || #{colTest2} || '%'
+			</if>
+			<if test="colTest3 != null and colTest3 != ''">
+				and col_test_3 like '%' || #{colTest3} || '%'
+			</if>
+		</where>
+		order by
+			id
+		;
+    </select>
+	<insert id="insert" parameterType="mybatsitest">
+		insert into mybatis_test
+		(
+			id,
+			col_test_1,
+			col_test_2,
+			col_test_3
+		)
+		values
+		(
+			#{id},
+			#{colTest1},
+			#{colTest2},
+			#{colTest3}
+		);
+    </insert>
+    <delete id="delete" parameterType="mybatsitest">
+		delete
+		from
+			mybatis_test
+		where
+			id = #{id}
+		;
+    </delete>
+    <update id="update" parameterType="mybatsitest">
+		update
+			mybatis_test
+		set
+			col_test_1 = #{colTest1},
+			col_test_2 = #{colTest2},
+			col_test_3 = #{colTest3}
+		where
+			id = #{id}
+		;
+    </update>
+</mapper>

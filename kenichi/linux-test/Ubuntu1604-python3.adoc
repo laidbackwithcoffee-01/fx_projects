@@ -1,0 +1,23 @@
+= Ubuntu Server Python3.x Install
+
+== Python 3.6 ＆ pip のインストール
+* $ sudo add-apt-repository ppa:jonathonf/python-3.6
+* $ sudo apt-get update
+* $ sudo apt-get install python3.6 python3.6-dev
+* $ sudo wget https://bootstrap.pypa.io/get-pip.py
+* $ sudo python3.6 get-pip.py
+
+== Scrapy Install
+* sudo apt-get install python-dev build-essential libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev
+* sudo pip install Scrapy
+* sudo pip3 install Scrapy
+
+== numpy install
+* sudo apt-get install python-numpy python-scipy python-matplotlib
+* sudo apt-get install python3-numpy python3-scipy python3-matplotlib
+
+== psycopg2 install
+* pythonでpostgreSQL使う
+* sudo apt-get install python-psycopg2
+* sudo apt-get install python3-psycopg2
+* sudo pip install psycopg2

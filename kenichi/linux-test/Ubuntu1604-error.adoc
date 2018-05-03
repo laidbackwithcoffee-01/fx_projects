@@ -1,0 +1,12 @@
+= Ubuntu Server Install Error
+
+== add-apt-repository: command not found
+
+[source]
+.以下実行する
+----
+$ sudo apt-get install apt-file
+$ sudo apt-file update
+$ sudo apt-file search add-apt-repository
+$ sudo apt-get install software-properties-common
+----

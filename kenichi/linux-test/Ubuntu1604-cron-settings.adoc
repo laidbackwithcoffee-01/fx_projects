@@ -1,0 +1,23 @@
+= Ubuntu Server 1604 cron settings
+
+== 操作１) CRONの動作確認
+* sudo service cron status
+** 「Active: active(running)」と表示されていればOK
+* 動いていない場合は +
+service crond start +
+で起動します。
+
+== 操作２) cronの設定ファイルにジョブを登録
+* crontab -e
+* 5分毎にスクリプト実行
+* */5 * * * * sudo /usr/bin/python3 /home/kenichi/request-test.py
+
+== 操作3) ファイルの権限を変更する
+* chmod 700 test.py
+* chown root:root test.py
+
+== cronのログ有効化
+* sudo vim /etc/rsyslog.d/50-default.conf
+** ＃cron.* /var/log/cron.logの#を取る
+* sudo service rsyslog restart
+* cat /var/log/cron.log
